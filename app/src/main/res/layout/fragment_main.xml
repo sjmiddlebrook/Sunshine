@@ -9,8 +9,28 @@
                 tools:context=".MainActivity$PlaceholderFragment">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="Today, November 29"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25º"
+        android:id="@+id/temperatureHigh"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7º"
+        android:id="@+id/temperatureLow"
+        android:layout_below="@id/temperatureHigh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>
