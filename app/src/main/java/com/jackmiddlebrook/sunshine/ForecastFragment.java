@@ -85,8 +85,7 @@ public class ForecastFragment extends Fragment {
                 getActivity(),  // current context
                 R.layout.list_item_forecast,  // ID of list item layout
                 R.id.list_item_forecast_textview, // ID of textview to populate
-                weekForecast // Forecast Data
-        );
+                weekForecast); // Forecast Data
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -219,9 +218,6 @@ public class ForecastFragment extends Fragment {
 
                 URL url = new URL(builtUri.toString());
 
-                Log.v(LOG_TAG, "Built URI " + builtUri.toString());
-                Log.v(LOG_TAG, "Test Results: " + testUrl.equals(builtUri.toString()));
-
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
@@ -278,6 +274,16 @@ public class ForecastFragment extends Fragment {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String[] strings) {
+            if (strings != null) {
+                mForecastAdapter.clear();
+                for (String dayForecastStr : strings) {
+                    mForecastAdapter.add(dayForecastStr);
+                }
+            }
         }
     }
 
